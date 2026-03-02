@@ -3,10 +3,8 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  // This MUST match your repo name '-'
-  base: '/-/', 
+  base: '/-/', // This matches your repo name exactly
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    outDir: 'dist'
   }
 })
