@@ -1,6 +1,9 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({ open: Boolean })
 const emit = defineEmits(['update:open'])
+const resumeUrl = computed(() => `${import.meta.env.BASE_URL}Resume.docx`)
 function toggle() {
   emit('update:open', !props.open)
 }
@@ -65,11 +68,34 @@ function toggle() {
             <a href="https://linkedin.com/in/jannarmarvega" target="_blank" rel="noopener" class="contact-link text-[13px] text-[hsl(0,0%,18%)]">linkedin.com/in/jannarmarvega</a>
           </div>
         </li>
+        <li class="flex items-center gap-4 contact-item">
+          <div class="flex items-center justify-center w-8 h-8 text-base border rounded-lg shadow-sm icon-box border-jet text-accent">
+            <ion-icon name="globe-outline" />
+          </div>
+          <div class="contact-info min-w-0 max-w-[calc(100%-46px)]">
+            <p class="contact-title mb-0.5 text-xs uppercase text-light-gray/90">Portfolio</p>
+            <a href="https://jannvega102.github.io/myportfolio/" target="_blank" rel="noopener noreferrer" class="contact-link text-[13px] text-[hsl(0,0%,18%)]">jannvega102.github.io/myportfolio</a>
+          </div>
+        </li>
+        <li class="flex items-center gap-4 contact-item">
+          <div class="flex items-center justify-center w-8 h-8 text-base border rounded-lg shadow-sm icon-box border-jet text-accent">
+            <ion-icon name="document-text-outline" />
+          </div>
+          <div class="contact-info min-w-0 max-w-[calc(100%-46px)]">
+            <p class="contact-title mb-0.5 text-xs uppercase text-light-gray/90">Resume</p>
+            <a :href="resumeUrl" download="Jann-Vega-Resume.docx" class="contact-link text-[13px] text-[hsl(0,0%,18%)]">Download resume (Word)</a>
+          </div>
+        </li>
       </ul>
 
       <div class="separator my-4 h-px w-full bg-jet shadow-[0_1px_0_hsla(0,0%,100%,.5)]" />
 
       <ul class="social-list flex items-center justify-start gap-4 pb-1 pl-1.5">
+        <li>
+          <a href="https://jannvega102.github.io/myportfolio/" target="_blank" rel="noopener noreferrer" title="Portfolio" class="text-lg text-light-gray/90 hover:text-light-gray">
+            <ion-icon name="globe-outline" />
+          </a>
+        </li>
         <li>
           <a href="https://linkedin.com/in/jannarmarvega" target="_blank" rel="noopener" title="LinkedIn" class="text-lg text-light-gray/90 hover:text-light-gray">
             <ion-icon name="logo-linkedin" />

@@ -1,4 +1,8 @@
 <script setup>
+import { computed } from 'vue'
+
+const resumeUrl = computed(() => `${import.meta.env.BASE_URL}Resume.docx`)
+
 const skills = [
   { label: 'Laravel & Backend', value: 95 },
   { label: 'Vue 3 & Frontend', value: 90 },
@@ -8,10 +12,18 @@ const skills = [
 </script>
 
 <template>
-  <header class="mb-8">
+  <header class="mb-8 flex flex-wrap items-center justify-between gap-4">
     <h2 class="article-title relative pb-2 text-2xl font-semibold capitalize text-[hsl(0,0%,18%)] after:absolute after:bottom-0 after:left-0 after:h-1 after:w-8 after:rounded after:bg-gradient-to-r after:from-[hsl(0,0%,25%)] after:to-[hsl(0,0%,35%)] md:pb-4 md:after:h-1.5 md:after:w-10">
       Resume
     </h2>
+    <a
+      :href="resumeUrl"
+      download="Jann-Vega-Resume.docx"
+      class="inline-flex items-center gap-2 rounded-xl border border-jet bg-gradient-to-br from-white/60 to-transparent px-4 py-2.5 text-sm font-medium text-[hsl(0,0%,18%)] shadow-sm transition-[background] duration-300 hover:from-[hsl(0,0%,98%)] hover:to-transparent"
+    >
+      <ion-icon name="download-outline" class="text-lg" />
+      Download resume (Word)
+    </a>
   </header>
 
   <section class="timeline mb-8">
